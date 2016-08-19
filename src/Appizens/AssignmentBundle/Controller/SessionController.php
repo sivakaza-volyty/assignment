@@ -5,8 +5,7 @@ namespace Appizens\AssignmentBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
-use Appizens\AssignmentBundle\Entity\User;
-use Appizens\AssignmentBundle\Entity\Session;
+use Doctrine\ORM\EntityRepository;
 
 class SessionController extends Controller
 {
@@ -59,17 +58,17 @@ class SessionController extends Controller
      * Description: overview of the sessions and OR’s of a specific specialist.
      * @param specialist_id
      */
-    public function getSpecialistSessionsAction(Request $request){
+    public function getSpecialistSessionsAction($specialistId){
 
-        $user = $request->get('specialist_id');
+
         $em = $this->getDoctrine()->getManager();
 
         $sessionRepo = $em->getRepository('AssignmentBundle:Session');
 
         $specialistSessions = $sessionRepo->createQueryBuilder('s')
                                           ->select('DISTINCT s.id')
-                                          ->leftJoin('s.users', 'su', 'with', 'su.id=:user')
-                                          ->setParameter('user', $user)
+                                          ->leftJoin('s.users', 'su', 'with', 'su.id=:specialist')
+                                          ->setParameter('specialist', $specialistId)
                                           ->getQuery()
                                           ->getResult();
         if(null !== $specialistSessions){
@@ -101,8 +100,8 @@ class SessionController extends Controller
         $user = $request->get('specialist_id');
         $start = $request->get('time_slot_start');
         $end = $request->get('time_slot_end');
-        $em = $this->getDoctrine()->getManager();
 
+        $em = $this->getDoctrine()->getManager();
         $sessionRepo = $em->getRepository('AssignmentBundle:Session');
 
         $specialistSessions = $sessionRepo->createQueryBuilder('s')
@@ -117,9 +116,26 @@ class SessionController extends Controller
             ->getResult();
 
         if(null !== $specialistSessions)
-            return true;
+            return new JsonResponse(array(
+                'success' => true,
+                'message' => 'Specialist is scheduled',
+            ));
         else
-            return false;
+        {
+            //check Specialist is on duty
+            $dutyTimeRepo = $em->getRepository('AssignmentBundle:DutyTime');
+            if($dutyTimeRepo->isOnDuty()){
+                return new JsonResponse(array(
+                    'success' => true,
+                    'message' => 'Specialist is available',
+                ));
+            }else{
+                return new JsonResponse(array(
+                    'success' => true,
+                    'specialist_sessions' => 'Specialist is not in duty',
+                ));
+            }
+        }
     }
 
 }

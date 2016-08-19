@@ -7,7 +7,7 @@ index:
     defaults: { _controller: AssignmentBundle:Session:index }
 
 specialist_sessions:
-    path:     /specialist_sessions
+    path:     /specialist_sessions/{specialistId}
     defaults: { _controller: AssignmentBundle:Session:getSpecialistSessions }
 
 search_specialist:

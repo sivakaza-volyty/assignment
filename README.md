@@ -12,7 +12,7 @@
   * **Appizens\AssignmentBundle\SessionController\indexAction**
 
 4.overview of the sessions and OR’s of a specific specialist.
-  * **Appizens\AssignmentBundle\SessionController\getSpecialistSessionsAction** 
+  * **Appizens\AssignmentBundle\SessionController\getSpecialistSessionsAction\{specialistId}**
 
 5.checks if a specialists available in a certain timeslot.
  * **Appizens\AssignmentBundle\SessionController\searchSpecialistAction**
