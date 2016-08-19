@@ -73,4 +73,4 @@ Enjoy!
 
 # assignment
 Model Diagram
-![image](https://{url})
+![image](https://github.com/sivakaza-volyty/assignment/blob/master/operation_theater_sessions.png)
