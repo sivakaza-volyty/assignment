@@ -1,11 +1,13 @@
 # assignment
 
-* **Story :**
+ **Story :**
+
         A hospital has 10 operatingrooms (OR’s).
         This hospital has 5 specialists in service that are scheduled to perform surgeries.
         It also has 5 anesthetists in service who sedate the patient at the beginning of the session.
 
-        These sessions (the execution of an operation) can last from 1 to 4 hours. In a session there is one specialist and one or more anesthetists.
+        These sessions (the execution of an operation) can last from 1 to 4 hours.
+        In a session there is one specialist and one or more anesthetists.
 
         Specialists and anesthetists are limitedly available (some work 40 hours, others 32).
 
