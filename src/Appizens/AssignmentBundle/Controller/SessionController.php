@@ -19,7 +19,7 @@ class SessionController extends Controller
 
         $sessions = $em->getRepository('AssignmentBundle:Session')->findAll();
 
-        if(null !== $sessions) {
+        if(!empty($sessions)) {
 
             //Format the result
             $output = array();
@@ -48,7 +48,7 @@ class SessionController extends Controller
         }else{
             return new JsonResponse(array(
                 'success' => false,
-                'message' => 'NO records found',
+                'message' => 'No records found',
             ));
         }
     }
@@ -71,7 +71,7 @@ class SessionController extends Controller
                                           ->setParameter('specialist', $specialistId)
                                           ->getQuery()
                                           ->getResult();
-        if(null !== $specialistSessions){
+        if(!empty($specialistSessions)){
             //Format Results
             $output = array();
             foreach($specialistSessions as $specialistSession){
@@ -86,7 +86,7 @@ class SessionController extends Controller
         }else{
             return new JsonResponse(array(
                 'success' => false,
-                'message' => 'NO records found',
+                'message' => 'No records found',
             ));
         }
 
@@ -115,9 +115,9 @@ class SessionController extends Controller
             ->getQuery()
             ->getResult();
 
-        if(null !== $specialistSessions)
+        if(!empty($specialistSessions))
             return new JsonResponse(array(
-                'success' => true,
+                'success' => false,
                 'message' => 'Specialist is scheduled',
             ));
         else
@@ -131,7 +131,7 @@ class SessionController extends Controller
                 ));
             }else{
                 return new JsonResponse(array(
-                    'success' => true,
+                    'success' => false,
                     'specialist_sessions' => 'Specialist is not in duty',
                 ));
             }
