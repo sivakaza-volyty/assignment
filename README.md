@@ -10,11 +10,11 @@
 3.Overview of the sessions and the specialists and the anesthetists that are scheduled per OR.
   * **Appizens\AssignmentBundle\SessionController\indexAction** (route : example.com/index)
 
-4.overview of the sessions and OR’s of a specific specialist.   (route: example.com/specialist_sessions/{specialistId} )
-  * **Appizens\AssignmentBundle\SessionController\getSpecialistSessionsAction**
+4.overview of the sessions and OR’s of a specific specialist.
+  * **Appizens\AssignmentBundle\SessionController\getSpecialistSessionsAction** (route: example.com/specialist_sessions/{specialistId} )
 
-5.checks if a specialists available in a certain timeslot.      (route:  example.com/search_specialist)
- * **Appizens\AssignmentBundle\SessionController\searchSpecialistAction**
+5.checks if a specialists available in a certain timeslot.
+ * **Appizens\AssignmentBundle\SessionController\searchSpecialistAction** (route:  example.com/search_specialist)
 
 
 # Tools Used Symfony Standard Edition
