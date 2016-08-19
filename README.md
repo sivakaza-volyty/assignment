@@ -1,4 +1,21 @@
-Symfony Standard Edition
+# assignment
+1. Check Entity properties and relations in the
+   AssignmentBundle\Entity,
+   src/Appizens/AssignmentBundle/Resources/config/doctrine and routes in
+   src/Appizens/AssignmentBundle/Resources/config/routing.yml
+
+2. Below is the generated Model Diagram.
+
+![image](https://github.com/sivakaza-volyty/assignment/blob/master/operation_theater_sessions.png)
+
+3.List all Sessions and User groups (specialists and the anesthetists) scheduled per OR in Appizens\AssignmentBundle\SessionController\indexAction
+
+4.List Specialists Sessions   Appizens\AssignmentBundle\SessionController\getSpecialistSessionsAction
+
+5.Search Specialist Availability Appizens\AssignmentBundle\SessionController\searchSpecialistAction
+
+
+Tools Used Symfony Standard Edition
 
 
 Welcome to the Symfony Standard Edition - a fully-functional Symfony
@@ -70,17 +87,3 @@ Enjoy!
 [11]: https://symfony.com/doc/2.7/cookbook/logging/monolog.html
 [12]: https://symfony.com/doc/2.7/cookbook/assetic/asset_management.html
 [13]: https://symfony.com/doc/2.7/bundles/SensioGeneratorBundle/index.html
-
-# assignment
-1. Check Entity properties and relations in the
-   AssignmentBundle\Entity,
-   src/Appizens/AssignmentBundle/Resources/config/doctrine and routes in
-   src/Appizens/AssignmentBundle/Resources/config/routing.yml
-
-2. Below is the generated Model Diagram.
-
-![image](https://github.com/sivakaza-volyty/assignment/blob/master/operation_theater_sessions.png)
-
-3.List all Sessions and User groups (specialists and the anesthetists) scheduled per OR in Appizens\AssignmentBundle\SessionController\indexAction
-4.List Specialists Sessions   Appizens\AssignmentBundle\SessionController\getSpecialistSessionsAction
-5.Search Specialist Availability Appizens\AssignmentBundle\SessionController\searchSpecialistAction
