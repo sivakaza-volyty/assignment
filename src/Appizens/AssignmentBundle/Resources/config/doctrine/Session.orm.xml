@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity repository-class="Appizens\AssignmentBundle\Entity\SessionRepository" name="Appizens\AssignmentBundle\Entity\Session" table="az_session">
+    <id name="id" type="integer" column="id">
+      <generator strategy="AUTO"/>
+    </id>
+    <field name="theaterId" type="integer" column="theater_id"/>
+    <field name="startAt" type="datetime" column="start_at"/>
+    <field name="endAt" type="datetime" column="end_at"/>
+    <field name="status" type="string" column="status" length="255"/>
+
+    <many-to-one field="operation_theater" target-entity="Appizens\AssignmentBundle\Entity\OperationTheater" mapped-by="sessions">
+      <join-column name="theater_id" referenced-column-name="id"  />
+      <cascade>
+        <cascade-persist/>
+      </cascade>
+    </many-to-one>
+
+    <!--Session Users -->
+    <many-to-many field="users" target-entity="Appizens\AssignmentBundle\Entity\User">
+      <cascade>
+        <cascade-persist/>
+      </cascade>
+      <join-table name="az_session_users">
+        <join-columns>
+          <join-column name="session_id" referenced-column-name="id" />
+        </join-columns>
+        <inverse-join-columns>
+          <join-column name="user_id" referenced-column-name="id" />
+        </inverse-join-columns>
+      </join-table>
+    </many-to-many>
+
+  </entity>
+</doctrine-mapping>

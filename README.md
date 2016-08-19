@@ -72,3 +72,5 @@ Enjoy!
 [13]: https://symfony.com/doc/2.7/bundles/SensioGeneratorBundle/index.html
 
 # assignment
+Model Diagram
+![image](https://{url})
