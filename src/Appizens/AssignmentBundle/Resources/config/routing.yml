@@ -1,3 +1,15 @@
 assignment_homepage:
     path:     /hello/{name}
     defaults: { _controller: AssignmentBundle:Default:index }
+
+index:
+    path:     /index
+    defaults: { _controller: AssignmentBundle:Session:index }
+
+specialist_sessions:
+    path:     /specialist_sessions
+    defaults: { _controller: AssignmentBundle:Session:getSpecialistSessions }
+
+search_specialist:
+    path:     /search_specialist
+    defaults: { _controller: AssignmentBundle:Session:searchSpecialist }

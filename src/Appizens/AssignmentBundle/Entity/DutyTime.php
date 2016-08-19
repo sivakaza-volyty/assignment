@@ -10,16 +10,6 @@ use Doctrine\ORM\Mapping as ORM;
 class DutyTime
 {
     /**
-     * @var integer
-     */
-    private $id;
-
-    /**
-     * @var integer
-     */
-    private $userId;
-
-    /**
      * @var \DateTime
      */
     private $day;
@@ -34,39 +24,16 @@ class DutyTime
      */
     private $dutyEndAt;
 
+    /**
+     * @var integer
+     */
+    private $id;
 
     /**
-     * Get id
-     *
-     * @return integer 
+     * @var \Appizens\AssignmentBundle\Entity\User
      */
-    public function getId()
-    {
-        return $this->id;
-    }
+    private $user;
 
-    /**
-     * Set userId
-     *
-     * @param integer $userId
-     * @return DutyTime
-     */
-    public function setUserId($userId)
-    {
-        $this->userId = $userId;
-
-        return $this;
-    }
-
-    /**
-     * Get userId
-     *
-     * @return integer 
-     */
-    public function getUserId()
-    {
-        return $this->userId;
-    }
 
     /**
      * Set day
@@ -136,19 +103,24 @@ class DutyTime
     {
         return $this->dutyEndAt;
     }
-    /**
-     * @var \AppBundle\Entity\User
-     */
-    private $user;
 
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
 
     /**
      * Set user
      *
-     * @param \AppBundle\Entity\User $user
+     * @param \Appizens\AssignmentBundle\Entity\User $user
      * @return DutyTime
      */
-    public function setUser(\AppBundle\Entity\User $user = null)
+    public function setUser(\Appizens\AssignmentBundle\Entity\User $user = null)
     {
         $this->user = $user;
 
@@ -158,7 +130,7 @@ class DutyTime
     /**
      * Get user
      *
-     * @return \AppBundle\Entity\User 
+     * @return \Appizens\AssignmentBundle\Entity\User 
      */
     public function getUser()
     {

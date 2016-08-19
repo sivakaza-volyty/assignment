@@ -4,7 +4,6 @@
     <id name="id" type="integer" column="id">
       <generator strategy="AUTO"/>
     </id>
-    <field name="theaterId" type="integer" column="theater_id"/>
     <field name="startAt" type="datetime" column="start_at"/>
     <field name="endAt" type="datetime" column="end_at"/>
     <field name="status" type="string" column="status" length="255"/>

@@ -10,11 +10,6 @@ use Doctrine\ORM\Mapping as ORM;
 class User
 {
     /**
-     * @var integer
-     */
-    private $id;
-
-    /**
      * @var string
      */
     private $firstName;
@@ -39,15 +34,28 @@ class User
      */
     private $dob;
 
+    /**
+     * @var integer
+     */
+    private $id;
 
     /**
-     * Get id
-     *
-     * @return integer 
+     * @var \Doctrine\Common\Collections\Collection
      */
-    public function getId()
+    private $timings;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $groups;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
     {
-        return $this->id;
+        $this->timings = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->groups = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -164,23 +172,15 @@ class User
     {
         return $this->dob;
     }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $timings;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
+     * Get id
+     *
+     * @return integer 
      */
-    private $groups;
-
-    /**
-     * Constructor
-     */
-    public function __construct()
+    public function getId()
     {
-        $this->timings = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->groups = new \Doctrine\Common\Collections\ArrayCollection();
+        return $this->id;
     }
 
     /**
