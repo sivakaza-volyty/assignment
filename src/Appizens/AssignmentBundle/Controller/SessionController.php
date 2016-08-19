@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Doctrine\ORM\EntityRepository;
+use Appizens\AssignmentBundle\Entity\DutyTimeRepository;
 
 class SessionController extends Controller
 {
@@ -109,7 +110,7 @@ class SessionController extends Controller
             ->leftJoin('s.users', 'su', 'with', 'su.id=:user')
             ->setParameter('user', $user)
             ->andWhere('s.startAt<=:start')
-            ->andWhere('s.EndAt<=:end')
+            ->andWhere('s.endAt<=:end')
             ->setParameter('start',$start)
             ->setParameter('end',$end)
             ->getQuery()
@@ -123,8 +124,7 @@ class SessionController extends Controller
         else
         {
             //check Specialist is on duty
-            $dutyTimeRepo = $em->getRepository('AssignmentBundle:DutyTime');
-            if($dutyTimeRepo->isOnDuty()){
+            if($em->getRepository('AssignmentBundle:DutyTime')->findBy(array('user'=>$user, 'dutyStartAt'=>$start, 'dutyEndAt'=>$end))){
                 return new JsonResponse(array(
                     'success' => true,
                     'message' => 'Specialist is available',

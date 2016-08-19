@@ -1,20 +1,19 @@
 # assignment
 1. Check Entity properties and relations in the
    * **AssignmentBundle\Entity**,
-   * **src/Appizens/AssignmentBundle/Resources/config/doctrine** and routes in
-   * **src/Appizens/AssignmentBundle/Resources/config/routing.yml**
+   * **src/Appizens/AssignmentBundle/Resources/config/doctrine**
 
 2. Below is the generated Model Diagram.
 
 ![image](https://github.com/sivakaza-volyty/assignment/blob/master/operation_theater_sessions.png)
 
 3.Overview of the sessions and the specialists and the anesthetists that are scheduled per OR.
-  * **Appizens\AssignmentBundle\SessionController\indexAction**
+  * **Appizens\AssignmentBundle\SessionController\indexAction** (route : example.com/index)
 
-4.overview of the sessions and OR’s of a specific specialist.
-  * **Appizens\AssignmentBundle\SessionController\getSpecialistSessionsAction\{specialistId}**
+4.overview of the sessions and OR’s of a specific specialist.   (route: example.com/specialist_sessions/{specialistId} )
+  * **Appizens\AssignmentBundle\SessionController\getSpecialistSessionsAction**
 
-5.checks if a specialists available in a certain timeslot.
+5.checks if a specialists available in a certain timeslot.      (route:  example.com/search_specialist)
  * **Appizens\AssignmentBundle\SessionController\searchSpecialistAction**
 
 
