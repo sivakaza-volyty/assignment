@@ -10,11 +10,6 @@ use Doctrine\ORM\Mapping as ORM;
 class GroupFac
 {
     /**
-     * @var integer
-     */
-    private $id;
-
-    /**
      * @var string
      */
     private $groupName;
@@ -24,16 +19,11 @@ class GroupFac
      */
     private $isEnabled;
 
-
     /**
-     * Get id
-     *
-     * @return integer 
+     * @var integer
      */
-    public function getId()
-    {
-        return $this->id;
-    }
+    private $id;
+
 
     /**
      * Set groupName
@@ -79,5 +69,15 @@ class GroupFac
     public function getIsEnabled()
     {
         return $this->isEnabled;
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 }

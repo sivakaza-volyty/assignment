@@ -10,16 +10,6 @@ use Doctrine\ORM\Mapping as ORM;
 class Session
 {
     /**
-     * @var integer
-     */
-    private $id;
-
-    /**
-     * @var integer
-     */
-    private $theaterId;
-
-    /**
      * @var \DateTime
      */
     private $startAt;
@@ -34,38 +24,27 @@ class Session
      */
     private $status;
 
+    /**
+     * @var integer
+     */
+    private $id;
 
     /**
-     * Get id
-     *
-     * @return integer 
+     * @var \Appizens\AssignmentBundle\Entity\OperationTheater
      */
-    public function getId()
-    {
-        return $this->id;
-    }
+    private $operation_theater;
 
     /**
-     * Set theaterId
-     *
-     * @param integer $theaterId
-     * @return Session
+     * @var \Doctrine\Common\Collections\Collection
      */
-    public function setTheaterId($theaterId)
-    {
-        $this->theaterId = $theaterId;
-
-        return $this;
-    }
+    private $users;
 
     /**
-     * Get theaterId
-     *
-     * @return integer 
+     * Constructor
      */
-    public function getTheaterId()
+    public function __construct()
     {
-        return $this->theaterId;
+        $this->users = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -136,22 +115,15 @@ class Session
     {
         return $this->status;
     }
-    /**
-     * @var \Appizens\AssignmentBundle\Entity\OperationTheater
-     */
-    private $operation_theater;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
+     * Get id
+     *
+     * @return integer 
      */
-    private $users;
-
-    /**
-     * Constructor
-     */
-    public function __construct()
+    public function getId()
     {
-        $this->users = new \Doctrine\Common\Collections\ArrayCollection();
+        return $this->id;
     }
 
     /**

@@ -10,6 +10,7 @@ use Appizens\AssignmentBundle\Entity\DutyTimeRepository;
 
 class SessionController extends Controller
 {
+    
 
     /**
      * Description: overview of the sessions and the specialists and the anesthetists that are scheduled per OR.
@@ -32,11 +33,14 @@ class SessionController extends Controller
                 if (null !== $session->getUsers()) {
                     $i = 0;
                     foreach ($session->getUsers() as $user) {
-                        if ($user->hasGroup("Specialist")) {
-                            $i++;
-                            $output[$session->getid()]['specialist'][$i] = $user->getName();
-                        } else {
-                            $output[$session->getid()]['anesthetists'] = $user->getName();
+                        $userGroups = $user->getGroups();
+                        foreach ($userGroups as $userGroup) {
+                            if ($userGroup->getGroup() == "Specialist") {
+                                $i++;
+                                $output[$session->getid()]['specialist'][$i] = $user->getName();
+                            } else {
+                                $output[$session->getid()]['anesthetists'] = $user->getName();
+                            }
                         }
                     }
                 }

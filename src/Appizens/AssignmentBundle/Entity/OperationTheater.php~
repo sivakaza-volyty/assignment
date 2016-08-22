@@ -10,24 +10,26 @@ use Doctrine\ORM\Mapping as ORM;
 class OperationTheater
 {
     /**
+     * @var string
+     */
+    private $theaterName;
+
+    /**
      * @var integer
      */
     private $id;
 
     /**
-     * @var string
+     * @var \Doctrine\Common\Collections\Collection
      */
-    private $theaterName;
-
+    private $sessions;
 
     /**
-     * Get id
-     *
-     * @return integer 
+     * Constructor
      */
-    public function getId()
+    public function __construct()
     {
-        return $this->id;
+        $this->sessions = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -52,17 +54,15 @@ class OperationTheater
     {
         return $this->theaterName;
     }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $sessions;
 
     /**
-     * Constructor
+     * Get id
+     *
+     * @return integer 
      */
-    public function __construct()
+    public function getId()
     {
-        $this->sessions = new \Doctrine\Common\Collections\ArrayCollection();
+        return $this->id;
     }
 
     /**
