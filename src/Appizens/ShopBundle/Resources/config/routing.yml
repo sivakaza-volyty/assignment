@@ -1,0 +1,3 @@
+appizens_shop_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: AppizensShopBundle:Default:index }
